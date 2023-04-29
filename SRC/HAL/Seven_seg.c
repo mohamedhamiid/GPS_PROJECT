@@ -40,7 +40,9 @@ int d= (int) distance;
    d /= 10;
 
    seg3 = d % 10;
-
+	
+}
+	
 void show (int digit, char value) {
 
    GPIO_PORTB_DATA_R= 0x00; // Turns off LEDs
