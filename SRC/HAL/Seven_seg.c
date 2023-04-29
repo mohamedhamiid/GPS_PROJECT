@@ -13,7 +13,7 @@ GPIO_PORTB_AFSEL_R &= 0x00;
 GPIO_PORTB_PCTL_R &= 0x0; 
 GPIO_PORTB_DIR_R |= 0xFF; 
 GPIO_PORTB_DEN_R |= 0xFF;
-	
+}
 void GPIO_PORTB_setPort (unsigned char sevenSegmentValues) {
 
 GPIO_PORTB_DATA_R = sevenSegmentValues;
