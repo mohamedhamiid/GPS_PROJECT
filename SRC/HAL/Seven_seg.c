@@ -47,7 +47,7 @@ void show (int digit, char value) {
 
    GPIO_PORTB_DATA_R= 0x00; // Turns off LEDs
    GPIO_PORTE_DATA_R= digit; // Selects segment to turn on PE1, PE2, PE3
-   GPIO_setSevenSegment (value);
+   setSevenSegment (value);
 
 
     }
