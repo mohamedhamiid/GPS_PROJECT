@@ -19,21 +19,21 @@
 
 ### App (Application Layer)
 #### Main : 
-= Kirollos George Louis           2000356
-= Omar Magdy Mostafa Mahmoud      2001135
+- Kirollos George Louis           2000356
+- Omar Magdy Mostafa Mahmoud      2001135
 
 ### HAL (Hardware Architecture Layer)
 #### GPS :
-= Mohamed Abdel Hamid Abdel Hares 2001087
-= Anas Hamed Ahmed                2001584
+- Mohamed Abdel Hamid Abdel Hares 2001087
+- Anas Hamed Ahmed                2001584
 #### LED :
-= Mostafa Mohamed Osman Shaheen   2000912
+- Mostafa Mohamed Osman Shaheen   2000912
 
 ### MCAL (Microcontroller Architecture Layer)
 #### DIO:
-= Yousif Hazim Nazar              2001741
+- Yousif Hazim Nazar              2001741
 #### UART
-= Zeyad Abdullah Sayed            2000417
-= Ahmed gamal helmy               2000082
+- Zeyad Abdullah Sayed            2000417
+- Ahmed gamal helmy               2000082
 
 ## Functions description is included with each function in code
