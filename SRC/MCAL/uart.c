@@ -109,7 +109,7 @@ void UART0_receiveString(char *Str , char stopChar)
 	/* Receive the first byte */
 	Str[i] =  UART0_recieveByte();
 	UART0_sendByte(Str[i]);
-	/* Receive the whole string until the '#' */
+	/* Receive the whole string until the stop char*/
 	while(Str[i] != stopChar)
 	{
 		i++;
@@ -132,7 +132,7 @@ void UART2_receiveString(char *Str , char stopChar)
 	/* Receive the first byte */
 	Str[i] =  UART2_recieveByte();
 
-	/* Receive the whole string until the '#' */
+	/* Receive the whole string until the stop char */
 	while(Str[i] != stopChar)
 	{
 		i++;
