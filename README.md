@@ -32,7 +32,7 @@
 ### MCAL (Microcontroller Architecture Layer)
 #### DIO:
 - Yousif Hazim Nazar              2001741
-#### UART
+#### UART:
 - Zeyad Abdullah Sayed            2000417
 - Ahmed gamal helmy               2000082
 
