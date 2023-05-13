@@ -7,11 +7,11 @@
 - when the target destination is far away by distance > 5 meters , the RED led will turn on.
 - When the target destination is about to be reached < 5 meters , the BLUE led will turn on.
 
-## What we used?
+## What we used ?
 - Tiva TM4C123GH6PM Microcontroller based on ARM Cortex-M4.
 - GPS Module.
 
-## Algorithm
+## Algorithm :
 - Getting the current location from GPS Module using UART, then calculating the distance between it and final location which is hard coded inside the code.
 - Based on the distance we choose which led to turn on.
 
