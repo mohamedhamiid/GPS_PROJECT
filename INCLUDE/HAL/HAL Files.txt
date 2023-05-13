@@ -1,3 +1,0 @@
-GPS.h
-LED.h
-SEG7.h
