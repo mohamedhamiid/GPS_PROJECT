@@ -1,3 +1,15 @@
+ /******************************************************************************
+ *
+ * Module: UART
+ *
+ * File Name: uart.h
+ *
+ * Description: Header file for the UART AVR driver
+ *
+ * Author: Ahmed Gamal Helmy & Zeyad Abdullah Sayed
+ *
+ *******************************************************************************/
+
 #include "../../SERVICES/TM4C123.h"
 #include <stdint.h>
 #include <string.h>
@@ -8,10 +20,9 @@ common macros
 
 ***********/
 
-#define SET_BIT(REG,BIT) (REG|=(1<<BIT))    /* Set a certain bit in any register */
+
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))  /* Clear a certain bit in any register */
 #define TOGGLE_BIT(REG,BIT) (REG^=(1<<BIT))    /* Toggle a certain bit in any register */
-#define GET_BIT(REG,BIT) ( ( REG & (1<<BIT) ) >> BIT )   /* Get bit value */
 
 #define BIT_IS_SET(REG,BIT) ( REG & (1<<BIT) )   /* Check if a specific bit is set in any register and return true if yes */
 #define BIT_IS_CLEAR(REG,BIT) ( !(REG & (1<<BIT)) )  /* Check if a specific bit is cleared in any register and return true if yes */
@@ -36,15 +47,42 @@ typedef double                float64;
 
 
 
-/**************     prototypes     *****************/
+/*******************************************************************************
+ *                      Functions Prototypes                                   *
+ *******************************************************************************/
+ 
+ /*
+ * Description :
+ * Functional responsible for Initialize the UART device 
+ */
 void UART0_init(uint16  baudRate);
 void UART2_init(uint16  baudRate);
 
-uint8 UART0_recieveByte(void);
-uint8 UART2_recieveByte(void);
+/*
+ * Description :
+ * Functional responsible for receive byte from another UART device.
+ */
+char UART0_recieveByte(void);
+char UART2_recieveByte(void);
 
-void UART0_receiveString(uint8 *Str);
-void UART2_receiveString(uint8 *Str);
 
+/*
+ * Description :
+ * Receive the required string until the stop char symbol through UART from the other UART device.
+ */
+void UART0_receiveString(char *Str , char stopChar);
+void UART2_receiveString(char *Str , char stopChar);
+
+
+/*
+ * Description :
+ * Functional responsible for send byte to another UART device.
+ */
 void UART0_sendByte(uint8 data);
 void UART2_sendByte(uint8 data);
+
+/*
+ * Description :
+ * Send the required string through UART to the other UART device.
+ */
+void UART_sendString(char * ptr);
