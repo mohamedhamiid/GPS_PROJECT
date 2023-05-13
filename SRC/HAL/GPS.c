@@ -42,6 +42,11 @@ double degToRad(double degree) {
 
 
 // function to calculate distance between two locations using longitude and latitude in Radians
+//************************** Get distance *****************************************//
+//  Haversine formula: a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)                //
+//  c = 2 * atan2(sqrt(a), sqrt(1 - a))                                            //
+// distance = Earth radius *c                                                      //
+//*********************************************************************************//
 double GPS_getDistance(double currentLat,double currentLong,double previousLat,double previousLong){
     double lat1 = degToRad(currentLat);
     double long1 = degToRad(currentLong);
