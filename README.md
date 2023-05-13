@@ -15,6 +15,10 @@
 - Getting the current location from GPS Module using UART, then calculating the distance between it and final location which is hard coded inside the code.
 - Based on the distance we choose which led to turn on.
 
+## Repo Files:
+- INCLUDE: Contain Prototypes and hash defines of each file
+- SRC : Contain source code.
+- SERVICES : Contain Bit_utilies which contain some Sets and clears + header file of tiva which contains registers adrresses 
 ## Architecture Layers and Contributions :
 
 ### App (Application Layer)
