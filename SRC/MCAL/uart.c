@@ -1,8 +1,14 @@
-/**********************************
-*	Auther :Ahmed Gamal Helmy
-*	Date: 5/5/2023
-*	filename: uart.c
-***********************************/
+ /******************************************************************************
+ *
+ * Module: UART
+ *
+ * File Name: uart.c
+ *
+ * Description: Source file for the UART AVR driver
+ *
+ * Author: Ahmed Gamal Helmy & Zeyad Abdullah
+ *
+ *******************************************************************************/
 
 
 #include "..\..\SERVICES\TM4C123.h"
@@ -10,6 +16,16 @@
 #include "../../INCLUDE/MCAL/uart.h"
 
 
+
+/*******************************************************************************
+ *                      Functions Definitions                                  *
+ *******************************************************************************/
+
+
+/*
+ * Description :
+ * Functional responsible for Initialize the UART device 
+ */
 void UART0_init(uint16  baudRate)
 {
 	SET_BIT(SYSCTL_RCGCUART_R,0); 	                 /*******  set pin 0 to provide clock ***********/
@@ -79,7 +95,10 @@ void UART2_init(uint16  baudRate)
 
 
 
-
+/*
+ * Description :
+ * Functional responsible for receive byte from another UART device.
+ */
 
 /**********   function to recieve byte UART0******/
 char UART0_recieveByte(void){
@@ -99,6 +118,10 @@ char UART2_recieveByte(void){
 
 
 
+/*
+ * Description :
+ * Receive the required string until the stop char symbol through UART from the other UART device.
+ */
 
 /**********   function to recieve string UART0***********/
 void UART0_receiveString(char *Str , char stopChar)
@@ -109,7 +132,7 @@ void UART0_receiveString(char *Str , char stopChar)
 	/* Receive the first byte */
 	Str[i] =  UART0_recieveByte();
 	UART0_sendByte(Str[i]);
-	/* Receive the whole string until the stop char*/
+	/* Receive the whole string until the stop char */
 	while(Str[i] != stopChar)
 	{
 		i++;
@@ -118,7 +141,7 @@ void UART0_receiveString(char *Str , char stopChar)
 		UART0_sendByte(Str[i]);
 	}
 
-	/* After receiving the whole string plus the '#', replace the '#' with '\0' */
+	/* After receiving the whole string plus the stop char, replace the stop char with '\0' */
 	Str[i] = '\0';
 }
 
@@ -139,27 +162,38 @@ void UART2_receiveString(char *Str , char stopChar)
 		Str[i] =  UART2_recieveByte();
 	}
 
-	/* After receiving the whole string plus the '#', replace the '#' with '\0' */
+	/* After receiving the whole string plus the stop char, replace the stop char with '\0' */
 	Str[i] = '\0';
 }
 
 
-/**********   function to send byte UART0****/
 
+
+
+/*
+ * Description :
+ * Functional responsible for send byte to another UART device.
+ */
+
+/**********   function to send byte UART0****/
 void UART0_sendByte(uint8 data)
 {
 	while(BIT_IS_SET(UART0_FR_R,5));	/**********  check until TXFF =0  **************/
 	UART0_DR_R=data;
 }
 /**********   function to send byte UART2****/
-
 void UART2_sendByte(uint8 data)
 {
 	while(BIT_IS_SET(UART2_FR_R,5));	/**********  check until TXFF =0  **************/
 	UART2_DR_R=data;
 }
 
-/*************** Send String *************/
+
+
+/*
+ * Description :
+ * Send the required string through UART to the other UART device.
+ */
 void UART_sendString(char * ptr){
 while(*ptr != NULL){
 	UART0_sendByte(*ptr);
